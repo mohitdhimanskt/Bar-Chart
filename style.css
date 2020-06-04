@@ -23,4 +23,7 @@
     align-self: center;
     position: relative;
 }
+@media (min-width: 1000px){
+    
+}
 
