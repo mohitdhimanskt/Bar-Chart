@@ -82,5 +82,38 @@ svgContainer.append('text')
   scaledGDP = GDP.map(function(item) {
     return linearScale(item);
   });
+
+  var yAxisScale = d3.scaleLinear()
+  .domain([0, gdpMax])
+  .range([height, 0]);
+
+var yAxis = d3.axisLeft(yAxisScale)
+  
+var yAxisGroup = svgContainer.append('g')
+  .call(yAxis)
+  .attr('id', 'y-axis')
+  .attr('transform', 'translate(60, 0)');
+  
+d3.select('svg').selectAll('rect')
+  .data(scaledGDP)
+  .enter()
+  .append('rect')
+  .attr('data-date', function(d, i) {
+    return data.data[i][0]
+  })
+  .attr('data-gdp', function(d, i) {
+    return data.data[i][1]
+  })
+  .attr('class', 'bar')
+  .attr('x', function(d, i) {
+    return xScale(yearsDate[i]);
+  })
+  .attr('y', function(d, i) {
+    return height - d;
+  })
+  .attr('width', barWidth)
+  .attr('height', function(d) {
+    return d;
+  })
 }
 
