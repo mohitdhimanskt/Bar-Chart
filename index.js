@@ -31,5 +31,21 @@ svgContainer.append('text')
     var years = data.data.map(function(item) {
         var quarter;
         var temp = item[0].substring(5, 7);
+
+        if(temp === '01') {
+            quarter = 'Q1';
+          }
+          else if (temp === '04'){
+            quarter = 'Q2';
+          }
+          else if(temp === '07') {
+            quarter = 'Q3';
+          }
+          else if(temp ==='10') {
+            quarter = 'Q4';
+          }
+      
+          return item[0].substring(0, 4) + ' ' + quarter
+        });
 }
 
