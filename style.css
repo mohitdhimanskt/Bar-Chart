@@ -50,4 +50,10 @@
     box-shadow: 1px 1px 10px;
     border-radius: 2px;
     pointer-events: none;
+
+}
+.overlay{
+    position: absolute;
+    background: #fff;
+    pointer-events: none;
 }
