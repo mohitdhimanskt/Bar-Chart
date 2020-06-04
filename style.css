@@ -57,3 +57,8 @@
     background: #fff;
     pointer-events: none;
 }
+#y-axis path {
+    stroke: black;
+    stroke-width: 1;
+    fill: none;
+}
