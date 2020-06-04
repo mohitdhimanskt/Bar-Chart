@@ -47,5 +47,27 @@ svgContainer.append('text')
       
           return item[0].substring(0, 4) + ' ' + quarter
         });
+
+        var yearsDate = data.data.map(function(item) {
+            return new Date(item[0]);
+          });
+        
+          var xMax = new Date(d3.max(yearsDate));
+          xMax.setMonth(xMax.getMonth() + 3);
+          var xScale = d3.scaleTime()
+            .domain([d3.min(yearsDate), xMax])
+            .range([0, width]);
+          
+          var xAxis = d3.axisBottom()
+            .scale(xScale);
+          
+          var xAxisGroup = svgContainer.append('g')
+            .call(xAxis)
+            .attr('id', 'x-axis')
+            .attr('transform', 'translate(60, 400)');
+          
+          var GDP = data.data.map(function(item) {
+            return item[1]
+          });
 }
 
