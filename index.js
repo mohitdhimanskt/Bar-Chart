@@ -115,5 +115,35 @@ d3.select('svg').selectAll('rect')
   .attr('height', function(d) {
     return d;
   })
-}
+  .style('fill', '#33adff')
+  .attr('transform', 'translate(60, 0)')
+  .on('mouseover', function(d, i) {
+    overlay.transition()
+      .duration(0)
+      .style('height', d + 'px')
+      .style('width', barWidth + 'px')
+      .style('opacity', .9)
+      .style('left', (i * barWidth) + 0 + 'px')
+      .style('top', height - d + 'px')
+      .style('transform', 'translateX(60px)');
+    tooltip.transition()
+      .duration(200)
+      .style('opacity', .9);
+    tooltip.html(years[i] + '<br>' + '$' + GDP[i].toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') + ' Billion')
+      .attr('data-date', data.data[i][0])
+      .style('left', (i * barWidth) + 30 + 'px')
+      .style('top', height - 100 + 'px')
+      .style('transform', 'translateX(60px)');
+  })
+  .on('mouseout', function(d) {
+    tooltip.transition()
+      .duration(200)
+      .style('opacity', 0);
+    overlay.transition()
+      .duration(200)
+      .style('opacity', 0);
+  });
+
+});
+
 
