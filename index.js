@@ -69,5 +69,18 @@ svgContainer.append('text')
           var GDP = data.data.map(function(item) {
             return item[1]
           });
+
+          var scaledGDP = [];
+  
+  var gdpMin = d3.min(GDP);
+  var gdpMax = d3.max(GDP);
+  
+  var linearScale = d3.scaleLinear()
+    .domain([0, gdpMax])
+    .range([0, height]);
+  
+  scaledGDP = GDP.map(function(item) {
+    return linearScale(item);
+  });
 }
 
