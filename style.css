@@ -32,4 +32,8 @@
     text-align: center;
     font-size: 2.5em;
 }
+.main .container .visHolder {
+    position: absolute;
+    top: 6em;
+}
 
