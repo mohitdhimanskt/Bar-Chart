@@ -28,5 +28,8 @@ svgContainer.append('text')
     .text('More Information: http://www.bea.gov/national/pdf/nipaguid.pdf')
     .attr('class', 'info');
   
+    var years = data.data.map(function(item) {
+        var quarter;
+        var temp = item[0].substring(5, 7);
 }
 
