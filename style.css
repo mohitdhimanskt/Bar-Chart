@@ -62,3 +62,8 @@
     stroke-width: 1;
     fill: none;
 }
+#x-axis path {
+    stroke: black;
+    stroke-width: 1;
+    fill:  none;
+}
